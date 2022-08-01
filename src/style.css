@@ -53,14 +53,28 @@ figcaption {
   font-weight: bold;
   text-align: center;
 }
-button{
-  font-family: 'Baloo Paaji 2', cursive;
-	border: 1px solid #9CFA89;
-	color: #9CFA89;
-	background-color: #02B1C8;
-	cursor: pointer;
-	border-radius: 8px;
+button {
+  font-family: "Baloo Paaji 2", cursive;
+  border: 1px solid #9cfa89;
+  color: #9cfa89;
+  background-color: #02b1c8;
+  cursor: pointer;
+  border-radius: 8px;
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 10px;
+}
+
+.status {
+  height: 3px;
+  width: 3px;
+  margin: 8px 6px 0px 0px;
+  border: solid;
+  border-radius: 20px;
+}
+
+.information {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
 }
