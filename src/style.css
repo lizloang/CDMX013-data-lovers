@@ -1,6 +1,5 @@
 body {
   background-image: url("image.png");
-  color: white;
 }
 
 header {
@@ -19,7 +18,15 @@ main {
   gap: 30px;
   justify-content: center;
 }
+
 figure {
   width: 300px;
   margin: 0px;
+  background-color: white;
+  color: black;
+}
+
+figcaption {
+  display: flex;
+  flex-direction: column;
 }
