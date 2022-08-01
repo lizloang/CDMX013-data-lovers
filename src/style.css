@@ -26,8 +26,8 @@ main {
 figure {
   display: flex;
   flex-direction: column;
-  height: 25rem;
-  width: auto;
+  height: auto;
+  width: 18rem;
   margin: 0px;
   background-color: white;
   color: black;
@@ -51,6 +51,7 @@ figcaption {
   margin: 0px;
   font-size: 20px;
   font-weight: bold;
+  text-align: center;
 }
 button{
   font-family: 'Baloo Paaji 2', cursive;
@@ -61,4 +62,5 @@ button{
 	border-radius: 8px;
   font-size: 20px;
   font-weight: bold;
+  margin-bottom: 10px;
 }
