@@ -3,7 +3,6 @@
 //import data from './data/pokemon/pokemon.js';
 import data from "./data/rickandmorty/rickandmorty.js";
 
-
 for (let i = 0; i < data.results.length; i++) {
   let figure = document.createElement("figure");
   let img = document.createElement("img");
