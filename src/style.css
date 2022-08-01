@@ -52,14 +52,14 @@ figcaption {
   font-size: 20px;
   font-weight: bold;
 }
-button{
-  font-family: 'Baloo Paaji 2', cursive;
-	border: 1px solid #9CFA89;
-	color: #9CFA89;
-	background-color: #02B1C8;
-	cursor: pointer;
-	margin: 10px 90px;
-	border-radius: 8px;
+button {
+  font-family: "Baloo Paaji 2", cursive;
+  border: 1px solid #9cfa89;
+  color: #9cfa89;
+  background-color: #02b1c8;
+  cursor: pointer;
+  margin: 10px 90px;
+  border-radius: 8px;
   font-size: 20px;
   font-weight: bold;
 }
