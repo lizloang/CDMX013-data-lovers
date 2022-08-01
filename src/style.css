@@ -1,0 +1,25 @@
+body {
+  background-image: url("image.png");
+  color: white;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+}
+#logo {
+  width: 25rem;
+  height: auto;
+  text-align: center;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+figure {
+  width: 300px;
+  margin: 0px;
+}
