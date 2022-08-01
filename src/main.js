@@ -9,7 +9,7 @@ for (let i = 0; i < data.results.length; i++) {
   img.src = data.results[i].image;
   let figcaption = document.createElement("figcaption");
 
-  let cardFigure = document.getElementById("root").appendChild(figure);
+  let cardFigure = document.querySelector("main").appendChild(figure);
   cardFigure.appendChild(img);
   let caption = cardFigure.appendChild(figcaption);
   let p = caption.appendChild(document.createElement("p"));
@@ -24,5 +24,4 @@ for (let i = 0; i < data.results.length; i++) {
   button.innerHTML = "show more";
 
   console.log("entro");
-
 }
