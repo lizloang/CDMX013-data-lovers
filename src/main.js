@@ -14,11 +14,16 @@ for (let i = 0; i < data.results.length; i++) {
   let caption = cardFigure.appendChild(figcaption);
   let p = caption.appendChild(document.createElement("p"));
   p.innerHTML = data.results[i].name;
-  let aliveSpan = caption.appendChild(document.createElement("span"));
-  aliveSpan.innerHTML = data.results[i].status;
-  let specieSpan = caption.appendChild(document.createElement("span"));
-  specieSpan.innerHTML = data.results[i].species;
-  let genderSpan = caption.appendChild(document.createElement("span"));
+  //seted a class to change the name color and size in the card
+  p.setAttribute("class", "character-name");
+  let information = caption.appendChild(document.createElement("div"));
+  //Here we need to add the circle with diferent color
+
+  let aliveSpan = information.appendChild(document.createElement("span"));
+  aliveSpan.innerHTML = data.results[i].status + " - ";
+  let specieSpan = information.appendChild(document.createElement("span"));
+  specieSpan.innerHTML = data.results[i].species + " - ";
+  let genderSpan = information.appendChild(document.createElement("span"));
   genderSpan.innerHTML = data.results[i].gender;
   let button = caption.appendChild(document.createElement("button"));
   button.innerHTML = "show more";
