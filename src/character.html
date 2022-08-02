@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rick and Morty</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Rick and Morty" id="logo" />
+    </header>
+    <main>
+        <figure><img id="characterImg" src="" alt=""></figure>
+        <aside>
+            <h1 id="character"></h1>
+            <p id="status">Status: <span id="status-span"></span></p>
+            <p id="gender">Gender: <span id="gender-span"></span></p>
+            <p id="origin">Origin: <span id="origin-span"></span></p>
+            <p id="specie">Specie: <span id="specie-span"></span></p>
+            <p id="location">Location: <span id="location-span"></span></p>
+            <p id="num-of-episodes">Number of episodes: <span id="num-of-episodes-span"></span></p>
+
+        </aside>
+    </main>
+    <script type="module">
+        import data from "./data/rickandmorty/rickandmorty.js";
+        
+        console.log(data);
+        const characterImg = document.getElementById("characterImg");
+        const characterAside = document.querySelector("aside");
+        const characterName = document.getElementById("character");
+        const characterStatus = document.getElementById("status-span");
+        const characterGender = document.getElementById("gender-span");
+        const characterOrigin = document.getElementById("origin-span");
+        const characterSpecie = document.getElementById("specie-span");
+        const characterLocation = document.getElementById("location-span");
+        const characterNumOfEpisodes = document.getElementById("num-of-episodes-span");
+        const episodes = data.results[0].episode;
+        
+        characterImg.src = data.results[0].image;
+        characterName.innerHTML = data.results[0].name;
+        characterStatus.innerHTML = data.results[0].status;
+        characterGender.innerHTML = data.results[0].gender;
+        characterOrigin.innerHTML = data.results[0].origin.name;
+        characterSpecie.innerHTML = data.results[0].species;
+        characterLocation.innerHTML = data.results[0].location.name;
+        characterNumOfEpisodes.innerHTML = episodes.length;
+        
+        
+
+
+
+        
+    </script>
+</body>
+</html>
