@@ -32,12 +32,11 @@ for (let i = 0; i < data.results.length; i++) {
     status.style.borderColor = "gray";
     status.style.backgroundColor = "gray";
   }
+
   let aliveSpan = information.appendChild(document.createElement("span"));
   aliveSpan.innerHTML = data.results[i].status + " - ";
   let specieSpan = information.appendChild(document.createElement("span"));
   specieSpan.innerHTML = data.results[i].species + " - ";
   let genderSpan = information.appendChild(document.createElement("span"));
   genderSpan.innerHTML = data.results[i].gender;
-  let button = caption.appendChild(document.createElement("button"));
-  button.innerHTML = "show more";
 }
