@@ -17,7 +17,21 @@ for (let i = 0; i < data.results.length; i++) {
   //seted a class to change the name color and size in the card
   p.setAttribute("class", "character-name");
   let information = caption.appendChild(document.createElement("div"));
+  information.setAttribute("class", "information");
   //Here we need to add the circle with diferent color
+  let status = information.appendChild(document.createElement("div"));
+  status.setAttribute("class", "status");
+
+  if (data.results[i].status == "Alive") {
+    status.style.borderColor = "green";
+    status.style.backgroundColor = "green";
+  } else if (data.results[i].status == "Dead") {
+    status.style.borderColor = "red";
+    status.style.backgroundColor = "red";
+  } else {
+    status.style.borderColor = "gray";
+    status.style.backgroundColor = "gray";
+  }
 
   let aliveSpan = information.appendChild(document.createElement("span"));
   aliveSpan.innerHTML = data.results[i].status + " - ";
@@ -25,8 +39,4 @@ for (let i = 0; i < data.results.length; i++) {
   specieSpan.innerHTML = data.results[i].species + " - ";
   let genderSpan = information.appendChild(document.createElement("span"));
   genderSpan.innerHTML = data.results[i].gender;
-  let button = caption.appendChild(document.createElement("button"));
-  button.innerHTML = "show more";
-
-  console.log("entro");
 }
