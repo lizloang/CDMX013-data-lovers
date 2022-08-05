@@ -39,4 +39,16 @@ for (let i = 0; i < data.results.length; i++) {
   specieSpan.innerHTML = data.results[i].species + " - ";
   let genderSpan = information.appendChild(document.createElement("span"));
   genderSpan.innerHTML = data.results[i].gender;
+
 }
+document.getElementById("filter").addEventListener("click", function(){
+  const element = document.getElementById("filter-container");
+  const style = window.getComputedStyle(element);
+  const visibility = style.getPropertyValue('visibility');
+  
+ if(visibility === "hidden"){
+    document.getElementById("filter-container").style.visibility = "visible";
+  }else{
+    document.getElementById("filter-container").style.visibility = "hidden";
+  }
+});
