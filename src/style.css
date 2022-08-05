@@ -145,3 +145,8 @@ nav {
   color: rgba(127, 250, 103, 1);
   font-size: 2em;
 }
+
+#filter:hover{
+  background-color: #003566;
+  cursor: pointer;
+}
