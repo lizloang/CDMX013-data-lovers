@@ -21,6 +21,13 @@ selectSpecie.addEventListener("change", (event) => {
   specieFilter(value);
 });
 
+const selectStatus = document.getElementById("status");
+selectStatus.addEventListener("change", (event) => {
+  const statusValue = selectStatus.options[selectStatus.selectedIndex].text;
+  document.querySelector("main");
+  statusFilter(statusValue);
+});
+
 document.getElementById("filter").addEventListener("click", function () {
   const element = document.getElementById("filter-container");
   const style = window.getComputedStyle(element);
@@ -102,4 +109,16 @@ function specieFilter(specie) {
     }
   });
   species.map(createCard);
+}
+
+function statusFilter(status) {
+  removeCards();
+  let typeOfStatus = filterData(data.results, (element) => {
+    if (element.status === status) {
+      console.log("element: " + element.status);
+      return true;
+    }
+  });
+
+  typeOfStatus.map(createCard);
 }
