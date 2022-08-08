@@ -4,10 +4,14 @@ import { filterData } from "./data.js";
 import data from "./data/rickandmorty/rickandmorty.js";
 console.log(data);
 
-for (let i = 0; i < data.results.length; i++) {
-  createCard(data.results[i]);
-}
+//Esto sucede al cargar por primera vez la pagina
+showAllCards();
 
+function showAllCards() {
+  for (let i = 0; i < data.results.length; i++) {
+    createCard(data.results[i]);
+  }
+}
 aliveFilter();
 document.getElementById("filter").addEventListener("click", function () {
   const element = document.getElementById("filter-container");
@@ -78,7 +82,12 @@ function aliveFilter() {
   alives.map(createCard);
 }
 
-function removeCards() { let main = document.querySelector("main"); while (main.firstChild) { main.removeChild(main.firstChild); } } 
+function removeCards() {
+  let main = document.querySelector("main");
+  while (main.firstChild) {
+    main.removeChild(main.firstChild);
+  }
+}
 
 function genderFilter(gender) {
   //removeCards();
