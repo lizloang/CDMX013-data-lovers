@@ -7,6 +7,8 @@ console.log(data);
 for (let i = 0; i < data.results.length; i++) {
   createCard(data.results[i]);
 }
+
+aliveFilter();
 document.getElementById("filter").addEventListener("click", function () {
   const element = document.getElementById("filter-container");
   const style = window.getComputedStyle(element);
@@ -63,4 +65,15 @@ function createCard(element) {
   specieSpan.innerHTML = element.species + " - ";
   let genderSpan = information.appendChild(document.createElement("span"));
   genderSpan.innerHTML = element.gender;
+}
+
+function aliveFilter() {
+  let alives = filterData(data.results, (element) => {
+    if (element.status === "Alive") {
+      console.log("element: " + element.status);
+      return true;
+    }
+  });
+
+  alives.map(createCard);
 }
