@@ -1,7 +1,8 @@
-//import { example } from './data.js';
+import { filterData } from './data.js';
 // import data from './data/lol/lol.js';
 //import data from './data/pokemon/pokemon.js';
 import data from "./data/rickandmorty/rickandmorty.js";
+console.log(data);
 
 for (let i = 0; i < data.results.length; i++) {
   let figure = document.createElement("figure");
@@ -50,5 +51,14 @@ document.getElementById("filter").addEventListener("click", function(){
     document.getElementById("filter-container").style.visibility = "visible";
   }else{
     document.getElementById("filter-container").style.visibility = "hidden";
+  }
+});
+
+//const condition1 = () => {}
+filterData(data.results,(element) => {
+  if (element.status === "Alive") {
+      console.log("element: " + element.status);
+      return element;
+      
   }
 });
