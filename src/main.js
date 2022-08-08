@@ -21,7 +21,7 @@ document.getElementById("filter").addEventListener("click", function () {
   }
 });
 
-//const condition1 = () => {}
+//const condition1 = () =text> {}
 filterData(data.results, (element) => {
   if (element.status === "Alive") {
     console.log("element: " + element.status);
@@ -77,3 +77,25 @@ function aliveFilter() {
 
   alives.map(createCard);
 }
+
+function removeCards() { let main = document.querySelector("main"); while (main.firstChild) { main.removeChild(main.firstChild); } } 
+
+function genderFilter(gender) {
+  //removeCards();
+  let genders = filterData(data.results, (element) => {
+    if (element.gender === gender) {
+      return true;
+    }
+  });
+  genders.map(createCard);
+}
+
+const select = document.getElementById("gender");
+select.addEventListener("change", (event) => {
+  const value = select.options[select.selectedIndex].text;
+  let result = document.querySelector("main");
+  result.textContent = `Result gender filtered ${event.target.value}`;
+  console.log("changed!!");
+  console.log("gender value: " + value);
+  genderFilter(value);
+});
