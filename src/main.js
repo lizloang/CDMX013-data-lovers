@@ -7,12 +7,20 @@ console.log(data);
 //Esto sucede al cargar por primera vez la pagina
 showAllCards();
 
-function showAllCards() {
-  for (let i = 0; i < data.results.length; i++) {
-    createCard(data.results[i]);
-  }
-}
-aliveFilter();
+const select = document.getElementById("gender");
+select.addEventListener("change", (event) => {
+  const value = select.options[select.selectedIndex].text;
+  console.log("gender value: " + value);
+  genderFilter(value);
+});
+
+const selectSpecie = document.getElementById("specie");
+selectSpecie.addEventListener("change", (event) => {
+  const value = selectSpecie.options[selectSpecie.selectedIndex].text;
+  console.log("specie value: " + value);
+  specieFilter(value);
+});
+
 document.getElementById("filter").addEventListener("click", function () {
   const element = document.getElementById("filter-container");
   const style = window.getComputedStyle(element);
@@ -22,14 +30,6 @@ document.getElementById("filter").addEventListener("click", function () {
     document.getElementById("filter-container").style.visibility = "visible";
   } else {
     document.getElementById("filter-container").style.visibility = "hidden";
-  }
-});
-
-//const condition1 = () =text> {}
-filterData(data.results, (element) => {
-  if (element.status === "Alive") {
-    console.log("element: " + element.status);
-    return element;
   }
 });
 
@@ -71,15 +71,10 @@ function createCard(element) {
   genderSpan.innerHTML = element.gender;
 }
 
-function aliveFilter() {
-  let alives = filterData(data.results, (element) => {
-    if (element.status === "Alive") {
-      console.log("element: " + element.status);
-      return true;
-    }
-  });
-
-  alives.map(createCard);
+function showAllCards() {
+  for (let i = 0; i < data.results.length; i++) {
+    createCard(data.results[i]);
+  }
 }
 
 function removeCards() {
@@ -90,7 +85,7 @@ function removeCards() {
 }
 
 function genderFilter(gender) {
-  //removeCards();
+  removeCards();
   let genders = filterData(data.results, (element) => {
     if (element.gender === gender) {
       return true;
@@ -99,12 +94,12 @@ function genderFilter(gender) {
   genders.map(createCard);
 }
 
-const select = document.getElementById("gender");
-select.addEventListener("change", (event) => {
-  const value = select.options[select.selectedIndex].text;
-  let result = document.querySelector("main");
-  result.textContent = `Result gender filtered ${event.target.value}`;
-  console.log("changed!!");
-  console.log("gender value: " + value);
-  genderFilter(value);
-});
+function specieFilter(specie) {
+  removeCards();
+  let species = filterData(data.results, (element) => {
+    if (element.species === specie) {
+      return true;
+    }
+  });
+  species.map(createCard);
+}
