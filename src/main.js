@@ -18,8 +18,7 @@ const select = document.getElementById("gender");
 select.addEventListener("change", () => {
   const value = select.options[select.selectedIndex].text;
   console.log("gender value: " + value);
-  genderFilter(value);
-  const numberOfresults = data.results.length;
+  const numberOfresults = genderFilter(value);
   document.getElementById("number-of-results").innerHTML =
     value + " (<span id='number-results'>" + numberOfresults + "</span>)";
   selectSpecie.selectedIndex = "0";
@@ -30,8 +29,7 @@ const selectSpecie = document.getElementById("specie");
 selectSpecie.addEventListener("change", () => {
   const value = selectSpecie.options[selectSpecie.selectedIndex].text;
   console.log("specie value: " + value);
-  specieFilter(value);
-  const numberOfresults = data.results.length;
+  const numberOfresults = specieFilter(value);
   document.getElementById("number-of-results").innerHTML =
     value + " (<span id='number-results'>" + numberOfresults + "</span>)";
   select.selectedIndex = "0";
@@ -42,8 +40,7 @@ const selectStatus = document.getElementById("status");
 selectStatus.addEventListener("change", () => {
   const value = selectStatus.options[selectStatus.selectedIndex].text;
   document.querySelector("main");
-  statusFilter(value);
-  const numberOfresults = data.results.length;
+  const numberOfresults = statusFilter(value);
   document.getElementById("number-of-results").innerHTML =
     value + " (<span id='number-results'>" + numberOfresults + "</span>)";
   select.selectedIndex = "0";
@@ -108,7 +105,7 @@ function genderFilter(gender) {
       return true;
     }
   });
-  genders.map(createCard);
+  return genders.map(createCard).length;
 }
 
 function specieFilter(specie) {
@@ -118,7 +115,7 @@ function specieFilter(specie) {
       return true;
     }
   });
-  species.map(createCard);
+  return species.map(createCard).length;
 }
 
 function statusFilter(status) {
@@ -130,5 +127,5 @@ function statusFilter(status) {
     }
   });
 
-  typeOfStatus.map(createCard);
+  return typeOfStatus.map(createCard).length;
 }
