@@ -17,12 +17,15 @@ allCharacters.addEventListener("click", () => {
 const select = document.getElementById("gender");
 select.addEventListener("change", () => {
   const value = select.options[select.selectedIndex].text;
-  console.log("gender value: " + value);
   const numberOfresults = genderFilter(value);
-  document.getElementById("number-of-results").innerHTML =
-    value + " (<span id='number-results'>" + numberOfresults + "</span>)";
   selectSpecie.selectedIndex = "0";
   selectStatus.selectedIndex = "0";
+  document.getElementById("number-of-results").innerHTML =
+  value + " (<span id='number-results'>" + numberOfresults + "</span>)";
+  if(value === "Gender"){
+    document.getElementById("number-of-results").innerHTML = "";
+    showAllCards();
+  }
 });
 
 const selectSpecie = document.getElementById("specie");
@@ -34,6 +37,10 @@ selectSpecie.addEventListener("change", () => {
     value + " (<span id='number-results'>" + numberOfresults + "</span>)";
   select.selectedIndex = "0";
   selectStatus.selectedIndex = "0";
+  if(value === "Specie"){
+    document.getElementById("number-of-results").innerHTML = "";
+    showAllCards();
+  }
 });
 
 const selectStatus = document.getElementById("status");
@@ -45,6 +52,10 @@ selectStatus.addEventListener("change", () => {
     value + " (<span id='number-results'>" + numberOfresults + "</span>)";
   select.selectedIndex = "0";
   selectSpecie.selectedIndex = "0";
+  if(value === "Status"){
+    document.getElementById("number-of-results").innerHTML = "";
+    showAllCards();
+  }
 });
 
 function createCard(element) {
