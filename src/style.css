@@ -16,11 +16,16 @@ header {
   text-align: center;
 }
 
-main {
+main,
+#filter-container {
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
   justify-content: center;
+}
+
+#filter-container {
+  margin-bottom: 2em;
 }
 
 figure {
@@ -143,17 +148,8 @@ nav {
   align-self: flex-end;
 }
 
-#filter i {
-  color: rgba(127, 250, 103, 1);
-  font-size: 2em;
-}
-
-#filter:hover {
-  background-color: #003566;
-  cursor: pointer;
-}
-
-.categorie {
+.categorie,
+#inicio {
   width: 18rem;
   height: 2.5rem;
   border-radius: 8px;
@@ -163,15 +159,20 @@ nav {
   font-size: 1.5em;
   text-align: center;
   border-color: rgba(127, 250, 103, 1);
-  margin-right: 2rem;
-  margin-bottom: 2rem;
 }
 
-.categorie:hover {
+.categorie:hover,
+#inicio:hover {
   box-shadow: 0px 0px 10px 10px rgba(127, 250, 103, 0.51);
 }
 
-#filter-container{
-  visibility: hidden;
-  transition : 0.3s ease-in-out;
+#inicio {
+  color: white;
+  background-color: rgba(37, 183, 9, 1);
 }
+
+/* {
+  display: flex;
+  flex-wrap: wrap;
+
+}*/
