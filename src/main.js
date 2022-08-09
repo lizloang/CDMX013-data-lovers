@@ -7,6 +7,12 @@ console.log(data);
 //Esto sucede al cargar por primera vez la pagina
 showAllCards();
 
+const allCharacters = document.getElementById("inicio");
+allCharacters.addEventListener("click", () => {
+  removeCards();
+  showAllCards();
+});
+
 const select = document.getElementById("gender");
 select.addEventListener("change", (event) => {
   const value = select.options[select.selectedIndex].text;
