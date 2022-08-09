@@ -34,18 +34,6 @@ selectStatus.addEventListener("change", (event) => {
   selectSpecie.selectedIndex = "0";
 });
 
-document.getElementById("filter").addEventListener("click", function () {
-  const element = document.getElementById("filter-container");
-  const style = window.getComputedStyle(element);
-  const visibility = style.getPropertyValue("visibility");
-
-  if (visibility === "hidden") {
-    document.getElementById("filter-container").style.visibility = "visible";
-  } else {
-    document.getElementById("filter-container").style.visibility = "hidden";
-  }
-});
-
 function createCard(element) {
   let figure = document.createElement("figure");
   let img = document.createElement("img");
