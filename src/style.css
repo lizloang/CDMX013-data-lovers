@@ -17,7 +17,8 @@ header {
 }
 
 main,
-#filter-container {
+#filter-container,
+#number-of-results {
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
@@ -171,8 +172,14 @@ nav {
   background-color: rgba(37, 183, 9, 1);
 }
 
-/* {
-  display: flex;
-  flex-wrap: wrap;
+#number-of-results {
+  color: white;
+  font-size: 2em;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  gap: 0px;
+}
 
-}*/
+#number-results {
+  color: rgba(37, 183, 9, 1);
+}
