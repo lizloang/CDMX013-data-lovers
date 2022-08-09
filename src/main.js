@@ -12,6 +12,8 @@ select.addEventListener("change", (event) => {
   const value = select.options[select.selectedIndex].text;
   console.log("gender value: " + value);
   genderFilter(value);
+  selectSpecie.selectedIndex = "0";
+  selectStatus.selectedIndex = "0";
 });
 
 const selectSpecie = document.getElementById("specie");
@@ -19,6 +21,8 @@ selectSpecie.addEventListener("change", (event) => {
   const value = selectSpecie.options[selectSpecie.selectedIndex].text;
   console.log("specie value: " + value);
   specieFilter(value);
+  select.selectedIndex = "0";
+  selectStatus.selectedIndex = "0";
 });
 
 const selectStatus = document.getElementById("status");
@@ -26,6 +30,8 @@ selectStatus.addEventListener("change", (event) => {
   const statusValue = selectStatus.options[selectStatus.selectedIndex].text;
   document.querySelector("main");
   statusFilter(statusValue);
+  select.selectedIndex = "0";
+  selectSpecie.selectedIndex = "0";
 });
 
 function createCard(element) {
