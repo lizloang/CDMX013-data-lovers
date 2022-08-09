@@ -9,39 +9,43 @@ showAllCards();
 
 const allCharacters = document.getElementById("inicio");
 allCharacters.addEventListener("click", () => {
+  document.getElementById("number-of-results").innerHTML = "";
   removeCards();
   showAllCards();
 });
 
 const select = document.getElementById("gender");
-select.addEventListener("change", (event) => {
+select.addEventListener("change", () => {
   const value = select.options[select.selectedIndex].text;
   console.log("gender value: " + value);
   genderFilter(value);
   const numberOfresults = data.results.length;
-  document.getElementById('number-of-results').innerHTML = value + " (" + numberOfresults + ")";
+  document.getElementById("number-of-results").innerHTML =
+    value + " (<span id='number-results'>" + numberOfresults + "</span>)";
   selectSpecie.selectedIndex = "0";
   selectStatus.selectedIndex = "0";
 });
 
 const selectSpecie = document.getElementById("specie");
-selectSpecie.addEventListener("change", (event) => {
+selectSpecie.addEventListener("change", () => {
   const value = selectSpecie.options[selectSpecie.selectedIndex].text;
   console.log("specie value: " + value);
   specieFilter(value);
   const numberOfresults = data.results.length;
-  document.getElementById('number-of-results').innerHTML = value + " (" + numberOfresults + ")";
+  document.getElementById("number-of-results").innerHTML =
+    value + " (<span id='number-results'>" + numberOfresults + "</span>)";
   select.selectedIndex = "0";
   selectStatus.selectedIndex = "0";
 });
 
 const selectStatus = document.getElementById("status");
-selectStatus.addEventListener("change", (event) => {
-  const statusValue = selectStatus.options[selectStatus.selectedIndex].text;
+selectStatus.addEventListener("change", () => {
+  const value = selectStatus.options[selectStatus.selectedIndex].text;
   document.querySelector("main");
-  statusFilter(statusValue);
+  statusFilter(value);
   const numberOfresults = data.results.length;
-  document.getElementById('number-of-results').innerHTML = statusValue + " (" + numberOfresults + ")";
+  document.getElementById("number-of-results").innerHTML =
+    value + " (<span id='number-results'>" + numberOfresults + "</span>)";
   select.selectedIndex = "0";
   selectSpecie.selectedIndex = "0";
 });
