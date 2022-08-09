@@ -18,6 +18,8 @@ select.addEventListener("change", (event) => {
   const value = select.options[select.selectedIndex].text;
   console.log("gender value: " + value);
   genderFilter(value);
+  const numberOfresults = data.results.length;
+  document.getElementById('number-of-results').innerHTML = value + " (" + numberOfresults + ")";
   selectSpecie.selectedIndex = "0";
   selectStatus.selectedIndex = "0";
 });
@@ -27,6 +29,8 @@ selectSpecie.addEventListener("change", (event) => {
   const value = selectSpecie.options[selectSpecie.selectedIndex].text;
   console.log("specie value: " + value);
   specieFilter(value);
+  const numberOfresults = data.results.length;
+  document.getElementById('number-of-results').innerHTML = value + " (" + numberOfresults + ")";
   select.selectedIndex = "0";
   selectStatus.selectedIndex = "0";
 });
@@ -36,6 +40,8 @@ selectStatus.addEventListener("change", (event) => {
   const statusValue = selectStatus.options[selectStatus.selectedIndex].text;
   document.querySelector("main");
   statusFilter(statusValue);
+  const numberOfresults = data.results.length;
+  document.getElementById('number-of-results').innerHTML = statusValue + " (" + numberOfresults + ")";
   select.selectedIndex = "0";
   selectSpecie.selectedIndex = "0";
 });
