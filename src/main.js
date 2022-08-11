@@ -112,9 +112,7 @@ function removeCards() {
 function genderFilter(gender) {
   removeCards();
   let genders = filterData(data.results, (element) => {
-    if (element.gender === gender) {
-      return true;
-    }
+    return element.gender === gender;
   });
   return genders.map(createCard).length;
 }
@@ -122,9 +120,7 @@ function genderFilter(gender) {
 function specieFilter(specie) {
   removeCards();
   let species = filterData(data.results, (element) => {
-    if (element.species === specie) {
-      return true;
-    }
+    return element.species === specie;
   });
   return species.map(createCard).length;
 }
@@ -132,10 +128,7 @@ function specieFilter(specie) {
 function statusFilter(status) {
   removeCards();
   let typeOfStatus = filterData(data.results, (element) => {
-    if (element.status === status) {
-      console.log("element: " + element.status);
-      return true;
-    }
+    return element.status === status;
   });
 
   return typeOfStatus.map(createCard).length;
