@@ -1,13 +1,18 @@
-import { example, anotherExample } from '../src/data.js';
+import { anotherExample, filterData } from '../src/data.js';
 
 
-describe('example', () => {
+describe('filterData', () => {
   it('is a function', () => {
-    expect(typeof example).toBe('function');
+    expect(typeof filterData).toBe('function');
   });
 
-  it('returns `example`', () => {
-    expect(example()).toBe('example');
+  it('Should return an objetc inside an array with property gender and Male value', () => {
+    const data = [
+      {gender: 'Female'},
+      {gender: 'Male'},
+      {gender: 'Genderless'}
+    ];
+    expect(filterData(data, element => element.gender === 'Male')).toEqual([{gender: 'Male'}]);
   });
 });
 
