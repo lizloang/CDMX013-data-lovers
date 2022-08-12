@@ -7,36 +7,54 @@ console.log(data);
 //Esto sucede al cargar por primera vez la pagina
 showAllCards();
 
+const allCharacters = document.getElementById("inicio");
+allCharacters.addEventListener("click", () => {
+  document.getElementById("number-of-results").innerHTML = "";
+  removeCards();
+  showAllCards();
+});
+
 const select = document.getElementById("gender");
-select.addEventListener("change", (event) => {
+select.addEventListener("change", () => {
   const value = select.options[select.selectedIndex].text;
-  console.log("gender value: " + value);
-  genderFilter(value);
+  const numberOfresults = genderFilter(value);
+  selectSpecie.selectedIndex = "0";
+  selectStatus.selectedIndex = "0";
+  document.getElementById("number-of-results").innerHTML =
+  value + " (<span id='number-results'>" + numberOfresults + "</span>)";
+  if(value === "Gender"){
+    document.getElementById("number-of-results").innerHTML = "";
+    showAllCards();
+  }
 });
 
 const selectSpecie = document.getElementById("specie");
-selectSpecie.addEventListener("change", (event) => {
+selectSpecie.addEventListener("change", () => {
   const value = selectSpecie.options[selectSpecie.selectedIndex].text;
   console.log("specie value: " + value);
-  specieFilter(value);
+  const numberOfresults = specieFilter(value);
+  document.getElementById("number-of-results").innerHTML =
+    value + " (<span id='number-results'>" + numberOfresults + "</span>)";
+  select.selectedIndex = "0";
+  selectStatus.selectedIndex = "0";
+  if(value === "Specie"){
+    document.getElementById("number-of-results").innerHTML = "";
+    showAllCards();
+  }
 });
 
 const selectStatus = document.getElementById("status");
-selectStatus.addEventListener("change", (event) => {
-  const statusValue = selectStatus.options[selectStatus.selectedIndex].text;
+selectStatus.addEventListener("change", () => {
+  const value = selectStatus.options[selectStatus.selectedIndex].text;
   document.querySelector("main");
-  statusFilter(statusValue);
-});
-
-document.getElementById("filter").addEventListener("click", function () {
-  const element = document.getElementById("filter-container");
-  const style = window.getComputedStyle(element);
-  const visibility = style.getPropertyValue("visibility");
-
-  if (visibility === "hidden") {
-    document.getElementById("filter-container").style.visibility = "visible";
-  } else {
-    document.getElementById("filter-container").style.visibility = "hidden";
+  const numberOfresults = statusFilter(value);
+  document.getElementById("number-of-results").innerHTML =
+    value + " (<span id='number-results'>" + numberOfresults + "</span>)";
+  select.selectedIndex = "0";
+  selectSpecie.selectedIndex = "0";
+  if(value === "Status"){
+    document.getElementById("number-of-results").innerHTML = "";
+    showAllCards();
   }
 });
 
@@ -94,31 +112,24 @@ function removeCards() {
 function genderFilter(gender) {
   removeCards();
   let genders = filterData(data.results, (element) => {
-    if (element.gender === gender) {
-      return true;
-    }
+    return element.gender === gender;
   });
-  genders.map(createCard);
+  return genders.map(createCard).length;
 }
 
 function specieFilter(specie) {
   removeCards();
   let species = filterData(data.results, (element) => {
-    if (element.species === specie) {
-      return true;
-    }
+    return element.species === specie;
   });
-  species.map(createCard);
+  return species.map(createCard).length;
 }
 
 function statusFilter(status) {
   removeCards();
   let typeOfStatus = filterData(data.results, (element) => {
-    if (element.status === status) {
-      console.log("element: " + element.status);
-      return true;
-    }
+    return element.status === status;
   });
 
-  typeOfStatus.map(createCard);
+  return typeOfStatus.map(createCard).length;
 }
