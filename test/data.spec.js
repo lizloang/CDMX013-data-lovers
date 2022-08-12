@@ -6,7 +6,7 @@ describe('filterData', () => {
     expect(typeof filterData).toBe('function');
   });
 
-  it('Should return an array of object with gender property and Male value', () => {
+  it('Should return an array of objects with gender property and Male value', () => {
     const data = [
       {gender: 'Female'},
       {gender: 'Male'},
@@ -15,7 +15,7 @@ describe('filterData', () => {
     expect(filterData(data, element => element.gender === 'Male')).toEqual([{gender: 'Male'}]);
   });
 
-  it('Should return an array of object with status property and Alive value', () => {
+  it('Should return an array of objects with status property and Alive value', () => {
     const data = [
       {status: 'Alive'},
       {status: 'Dead'},
@@ -24,7 +24,7 @@ describe('filterData', () => {
     expect(filterData(data, element => element.status === 'Alive')).toEqual([{status: 'Alive'}]);
   });
   
-  it('Should return an array of object with specie property and Alien value', () => {
+  it('Should return an array of objects with specie property and Alien value', () => {
     const data = [
       {specie: 'Animal'},
       {specie: 'Humanoid'},
@@ -34,15 +34,12 @@ describe('filterData', () => {
   });
 });
 
-
-describe('anotherExample', () => {
-  it('is a function', () => {
-    expect(typeof anotherExample).toBe('function');
-  });
-
-  it('returns `anotherExample`', () => {
-    expect(anotherExample()).toBe('OMG'); it('', () => {
-      expect(filterData.mock.allArgs()).toEqual([['arg1', 'arg2']]);
-    }); it('', () => {
-      expect(filterData.mock.allArgs()).toEqual([['arg1', 'arg2']]);
+  describe('anotherExample', () => {
+    it('is a function', () => {
+      expect(typeof anotherExample).toBe('function');
     });
+  
+    it('returns `anotherExample`', () => {
+      expect(anotherExample()).toBe('OMG');
+    });
+  });
