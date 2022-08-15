@@ -2,7 +2,7 @@ import { filterData, sortData } from "./data.js";
 // import data from './data/lol/lol.js';
 //import data from './data/pokemon/pokemon.js';
 import data from "./data/rickandmorty/rickandmorty.js";
-console.log(data);
+//console.log(data);
 
 //Esto sucede al cargar por primera vez la pagina
 showAllCards();
@@ -31,7 +31,7 @@ select.addEventListener("change", () => {
 const selectSpecie = document.getElementById("specie");
 selectSpecie.addEventListener("change", () => {
   const value = selectSpecie.options[selectSpecie.selectedIndex].text;
-  console.log("specie value: " + value);
+  //console.log("specie value: " + value);
   const numberOfresults = specieFilter(value);
   document.getElementById("number-of-results").innerHTML =
     value + " (<span id='number-results'>" + numberOfresults + "</span>)";
@@ -136,12 +136,20 @@ function statusFilter(status) {
 
 document.getElementById("sort").addEventListener("click", function(){
   const sortButton = document.getElementById("sort").value;
-  console.log(sortButton);
   if(sortButton == "a_z"){
-    sortData(data.results.map(i => i.name), "a_z");
+    const sortAZ = sortData(data.results, "a_z");
     document.getElementById("sort").value = "z_a";
+    document.getElementById("sort").removeChild(document.getElementById("sort").firstChild);
+    document.getElementById("sort").innerHTML = "<i class='fa-light fa-arrow-down-z-a'></i>";
+    removeCards();
+    sortAZ.map(createCard);
+
   }else{
-    sortData(data.results.map(i => i.name), "z_a");
+    const sortZA = sortData(data.results, "z_a");
     document.getElementById("sort").value = "a_z";
+    document.getElementById("sort").removeChild(document.getElementById("sort").firstChild);
+    document.getElementById("sort").innerHTML = "<i class='fa-light fa-arrow-up-a-z'></i>";
+    removeCards();
+    sortZA.map(createCard);
   }
 });

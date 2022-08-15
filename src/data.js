@@ -6,12 +6,19 @@ export const filterData = (data, condition) => {
   
 };
 
-export const sortData = (data, sortOrder) => {
+export const sortData = (data, sortBy, sortOrder) => {
   if(sortOrder === "a_z"){
-    const a_z = data.sort();
-    return a_z;
-  } else{
-    const z_a = data.sort().reverse();
-    return z_a;
+    return data.sort(function (a, b) {
+      if (a.name > b.name) {
+        return 1;
+      }
+      if (a.name < b.name) {
+        return -1;
+      }
+      return 0;
+    });
+  }else{
+    return data.reverse();
   }
 };
+
