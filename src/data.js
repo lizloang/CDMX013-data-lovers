@@ -1,12 +1,11 @@
 // estas funciones son de ejemplo
 
 export const filterData = (data, condition) => {
-  console.log(data.filter(condition));
   return data.filter(condition);
   
 };
 
-export const sortData = (data, sortBy, sortOrder) => {
+export const sortData = (data, sortOrder) => {
   if(sortOrder === "a_z"){
     return data.sort(function (a, b) {
       if (a.name > b.name) {
