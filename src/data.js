@@ -6,6 +6,12 @@ export const filterData = (data, condition) => {
   
 };
 
-export const anotherExample = () => {
-  return 'OMG';
+export const sortData = (data, sortOrder) => {
+  if(sortOrder === "a_z"){
+    const a_z = data.sort();
+    return a_z;
+  } else{
+    const z_a = data.sort().reverse();
+    return z_a;
+  }
 };

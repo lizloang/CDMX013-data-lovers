@@ -1,4 +1,4 @@
-import { filterData } from "./data.js";
+import { filterData, sortData } from "./data.js";
 // import data from './data/lol/lol.js';
 //import data from './data/pokemon/pokemon.js';
 import data from "./data/rickandmorty/rickandmorty.js";
@@ -133,3 +133,15 @@ function statusFilter(status) {
 
   return typeOfStatus.map(createCard).length;
 }
+
+document.getElementById("sort").addEventListener("click", function(){
+  const sortButton = document.getElementById("sort").value;
+  console.log(sortButton);
+  if(sortButton == "a_z"){
+    sortData(data.results.map(i => i.name), "a_z");
+    document.getElementById("sort").value = "z_a";
+  }else{
+    sortData(data.results.map(i => i.name), "z_a");
+    document.getElementById("sort").value = "a_z";
+  }
+});
