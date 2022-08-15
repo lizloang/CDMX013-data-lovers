@@ -6,6 +6,19 @@ export const filterData = (data, condition) => {
   
 };
 
-export const anotherExample = () => {
-  return 'OMG';
+export const sortData = (data, sortBy, sortOrder) => {
+  if(sortOrder === "a_z"){
+    return data.sort(function (a, b) {
+      if (a.name > b.name) {
+        return 1;
+      }
+      if (a.name < b.name) {
+        return -1;
+      }
+      return 0;
+    });
+  }else{
+    return data.reverse();
+  }
 };
+
