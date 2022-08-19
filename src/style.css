@@ -69,10 +69,12 @@ figcaption {
   margin: 15px 6px 0px 0px;
   border: solid;
   border-radius: 20px;
+  font-size: x-large;
 }
 
 .information {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   justify-items: center;
   transition: 0.5s;

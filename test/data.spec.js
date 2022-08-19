@@ -1,4 +1,4 @@
-import { anotherExample, filterData } from '../src/data.js';
+import {filterData, sortData } from '../src/data.js';
 
 
 describe('filterData', () => {
@@ -34,12 +34,50 @@ describe('filterData', () => {
   });
 });
 
-  describe('anotherExample', () => {
+  describe('sortData', () => {
     it('is a function', () => {
-      expect(typeof anotherExample).toBe('function');
+      expect(typeof sortData).toBe('function');
     });
   
-    it('returns `anotherExample`', () => {
-      expect(anotherExample()).toBe('OMG');
+    it('return data ascendant order ', () => {
+      const inputData = [
+        {name: 'Rick Sanchez'},
+        {name: 'Morty Smith'},
+        {name: 'Stewart Ackerley'}
+      ];
+      const outputData = [
+        {name: 'Morty Smith'},
+        {name: 'Rick Sanchez'},
+        {name: 'Stewart Ackerley'}
+      ];
+      expect(sortData(inputData, 'a_z')).toEqual(outputData);
+    });
+
+    it('return data falling order ', () => {
+      const inputData = [
+        {name: 'Morty Smith'},
+        {name: 'Rick Sanchez'},
+        {name: 'Stewart Ackerley'}
+      ];
+      const outputData = [
+        {name: 'Stewart Ackerley'},
+        {name: 'Rick Sanchez'},
+        {name: 'Morty Smith'}
+      ];
+      expect(sortData(inputData, 'z_a')).toEqual(outputData);
+    });
+
+    it('return 0 to reapet data ', () => {
+      const inputData = [
+        {name: 'Stewart Ackerley'},
+        {name: 'Rick Sanchez'},
+        {name: 'Stewart Ackerley'}
+      ];
+      const outputData = [
+        {name: 'Rick Sanchez'},
+        {name: 'Stewart Ackerley'},
+        {name: 'Stewart Ackerley'}
+      ];
+      expect(sortData(inputData, 'a_z')).toEqual(outputData);
     });
   });
