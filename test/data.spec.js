@@ -141,4 +141,25 @@ describe("searchInput", () => {
     const outputData = [{ name: "Morty Smith" }];
     expect(searchInput(inputData, "MORTY SMITH")).toEqual(outputData);
   });
+
+  it("return search characters by char ", () => {
+    const inputData = [
+      { name: "Stewart Ackerley" },
+      { name: "Beth Smith" },
+      { name: "Albert Einstein" },
+    ];
+    const outputData = [{ name: "Beth Smith" },{ name: "Albert Einstein" },
+    ];
+    expect(searchInput(inputData, "b")).toEqual(outputData);
+  });
+
+  it("return not match search characters", () => {
+    const inputData = [
+      { name: "Stewart Ackerley" },
+      { name: "Beth Smith" },
+      { name: "Albert Einstein" },
+    ];
+    expect(searchInput(inputData, "rosa")).toEqual([]);
+
+  });
 });
