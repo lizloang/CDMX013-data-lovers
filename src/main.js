@@ -1,4 +1,4 @@
-import { filterData, sortData } from "./data.js";
+import { filterData, sortData, searchInput } from "./data.js";
 // import data from './data/lol/lol.js';
 //import data from './data/pokemon/pokemon.js';
 import data from "./data/rickandmorty/rickandmorty.js";
@@ -165,4 +165,11 @@ document.getElementById("sort").addEventListener("click", () => {
     removeCards();
     sortZA.map(createCard);
   }
+});
+
+document.getElementById("search-input").addEventListener('input', (event) => {
+  const { value } = event.target;
+  console.log(value);
+  removeCards();
+  return searchInput(data.results, value).map(createCard);
 });
