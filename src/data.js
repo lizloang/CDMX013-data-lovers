@@ -22,9 +22,7 @@ export const sortData = (data, sortOrder) => {
 };
 
 export const searchInput = (data, value) => {
-  console.log("value searchInput: " + value.toLowerCase());
-  const buscador = data.filter(element => element.name.toLowerCase().includes(value.toLowerCase()));
-  console.log("buscador: " + buscador);
-  return buscador;
+  const searcher = data.filter(element => element.name.toLowerCase().includes(value.toLowerCase()));
+  return searcher;
 };
 
