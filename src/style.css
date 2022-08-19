@@ -18,8 +18,7 @@ header {
   text-align: center;
 }
 
-main,
-#filter-container,
+main,#filter-container,
 #number-of-results {
   display: flex;
   flex-wrap: wrap;
@@ -216,4 +215,9 @@ nav {
   #search{
     width: 74%;
   }
+}
+
+#not-found, #search-again{
+  color: white;
+  display: block;
 }

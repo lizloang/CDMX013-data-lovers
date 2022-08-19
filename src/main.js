@@ -169,7 +169,11 @@ document.getElementById("sort").addEventListener("click", () => {
 
 document.getElementById("search-input").addEventListener('input', (event) => {
   const { value } = event.target;
-  console.log(value);
   removeCards();
+  console.log("search: " + searchInput(data.results, value));
+  if(searchInput(data.results, value) == ""){
+    document.querySelector("main").innerHTML = "<div id='not-found-container'><p id='not-found'>That character is not in this universe.</p>" +
+    "<p id='search-again'>Please, search again</p></div>";
+  }
   return searchInput(data.results, value).map(createCard);
 });
