@@ -112,17 +112,23 @@ describe("searchInput", () => {
     expect(searchInput(inputData, "rick")).toEqual(outputData);
   });
 
-  it("return 0 to reapet data ", () => {
+  it("return search characters by char ", () => {
     const inputData = [
       { name: "Stewart Ackerley" },
-      { name: "Rick Sanchez" },
-      { name: "Stewart Ackerley" },
+      { name: "Beth Smith" },
+      { name: "Albert Einstein" },
     ];
-    const outputData = [
-      { name: "Rick Sanchez" },
-      { name: "Stewart Ackerley" },
-      { name: "Stewart Ackerley" },
+    const outputData = [{ name: "Beth Smith" },{ name: "Albert Einstein" },
     ];
-    expect(sortData(inputData, "a_z")).toEqual(outputData);
+    expect(searchInput(inputData, "b")).toEqual(outputData);
+  });
+
+  it("return not match search characters", () => {
+    const inputData = [
+      { name: "Stewart Ackerley" },
+      { name: "Beth Smith" },
+      { name: "Albert Einstein" },
+    ];
+    expect(searchInput(inputData, "rosa")).toEqual([]);
   });
 });
