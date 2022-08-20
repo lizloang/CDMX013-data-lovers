@@ -112,14 +112,43 @@ describe("searchInput", () => {
     expect(searchInput(inputData, "rick")).toEqual(outputData);
   });
 
+  it("return search characters by some letters ", () => {
+    const inputData = [
+      { name: "Adjudicator Rick" },
+      { name: "Morty Smith" },
+      { name: "Rick Sanchez" },
+    ];
+    const outputData = [{ name: "Adjudicator Rick" }, { name: "Rick Sanchez" }];
+    expect(searchInput(inputData, "ric")).toEqual(outputData);
+  });
+
+  it("return search characters by multiple same name ", () => {
+    const inputData = [
+      { name: "Adjudicator Rick" },
+      { name: "Morty Smith" },
+      { name: "Morty Smith" },
+    ];
+    const outputData = [{ name: "Morty Smith" }, { name: "Morty Smith" }];
+    expect(searchInput(inputData, "Morty Smith")).toEqual(outputData);
+  });
+
+  it("return search characters by all capital letters ", () => {
+    const inputData = [
+      { name: "Adjudicator Rick" },
+      { name: "Morty Smith" },
+      { name: "Rick Sanchez" },
+    ];
+    const outputData = [{ name: "Morty Smith" }];
+    expect(searchInput(inputData, "MORTY SMITH")).toEqual(outputData);
+  });
+
   it("return search characters by char ", () => {
     const inputData = [
       { name: "Stewart Ackerley" },
       { name: "Beth Smith" },
       { name: "Albert Einstein" },
     ];
-    const outputData = [{ name: "Beth Smith" },{ name: "Albert Einstein" },
-    ];
+    const outputData = [{ name: "Beth Smith" }, { name: "Albert Einstein" }];
     expect(searchInput(inputData, "b")).toEqual(outputData);
   });
 
