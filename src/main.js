@@ -1,4 +1,4 @@
-import { filterData, sortData, searchInput } from "./data.js";
+import { filterData, sortData, searchInput, computeStats } from "./data.js";
 //import {config, data2} from './chart.js';
 // import data from './data/lol/lol.js';
 //import data from './data/pokemon/pokemon.js';
@@ -182,34 +182,48 @@ document.getElementById("search-input").addEventListener("input", (event) => {
 });
 
 //chart example
-const labels = [
-  'Red',
-  'Blue',
-  'Yellow',
-  'Pink',
-  'Purple',
-  'Green',
-];
+//const dictStats = computeStats(data.results);
+function createCharts(categorie) {
+  const labels = Object.getOwnPropertyNames(
+    computeStats(data.results, categorie)
+  );
+  const values = Object.values(computeStats(data.results, categorie));
+  const colors = [
+    "rgb(252,248,108)",
+    "rgb(37,183,9)",
+    "rgb(0, 181, 204)",
+    "rgb(228, 167, 136)",
+    "rgb(0,191,255)",
+    "rgb(244,164,96)",
+    "rgb(242,153,1)",
+    "rgb(112,128,144)",
+    "rgb(95,158,160)",
+    "rgb(68,40,29)",
+    "rgb(255,255,255)",
+    "rgb(113,61,245)",
+  ];
+  const data2 = {
+    labels: labels,
+    datasets: [
+      {
+        label: "My First dataset",
+        backgroundColor: colors,
+        borderColor: "white",
+        data: values,
+        hoverOffset: 4,
+      },
+    ],
+  };
 
-const data2 = {
-  labels: labels,
-  datasets: [{
-    label: 'My First dataset',
-    backgroundColor: ['rgb(255, 99, 132)','rgb(255, 99, 132)',
-    'rgb(54, 162, 235)','rgb(255, 205, 86)','rgb(255, 99, 132)','rgb(45, 234, 99)'],
-    borderColor: 'rgb(255, 99, 132)',
-    data: [0, 10, 5, 2, 20, 30, 45],
-    hoverOffset: 4
-  }],
-};
+  const config = {
+    type: "doughnut",
+    data: data2,
+    options: {},
+  };
 
-const config = {
-  type: 'doughnut',
-  data: data2,
-  options: {}
-};
+  const myChart = new Chart(document.getElementById("myChart"), config);
+}
 
-const myChart = new Chart(
-  document.getElementById('myChart'),
-  config
-);
+createCharts("status");
+createCharts("specie");
+createCharts("gender");
