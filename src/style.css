@@ -164,11 +164,7 @@ nav {
 #sort:hover {
   box-shadow: 0px 0px 10px 10px rgba(127, 250, 103, 0.51);
 }
-@media only screen and (max-width: 576px) {
-  .categorie {
-    width: 7rem;
-  }
-}
+
 #number-of-results {
   color: white;
   font-size: 2em;
@@ -179,4 +175,76 @@ nav {
 
 #number-results {
   color: rgba(37, 183, 9, 1);
+}
+
+#search {
+  padding: 7px;
+  border-radius: 34px;
+  border: 1px solid #d9d9d9;
+  margin-bottom: 30px;
+  margin-top: 10px;
+  width: 27%;
+  background-color: white;
+}
+
+.fa-regular {
+  margin: 5px 10px;
+  color: rgb(118, 118, 118);
+}
+
+#search-input {
+  border: 0;
+  appearance: none;
+}
+
+#search-input:focus {
+  outline: none;
+  width: 85%;
+}
+
+#search-input::placeholder {
+  font-family: "Baloo Paaji 2", cursive;
+  font-size: 1.5em;
+}
+
+@media only screen and (max-width: 800px) and (min-width: 300px) {
+  .categorie {
+    width: 7rem;
+  }
+  #search {
+    width: 74%;
+  }
+}
+
+#not-found,
+#search-again {
+  color: white;
+  display: block;
+}
+
+#not-found {
+  font-size: 4em;
+  font-weight: bold;
+  color: #ffffff;
+  text-shadow: 2px 2px 0 rgba(127, 250, 103, 0.96),
+    2px -2px 0 rgba(127, 250, 103, 0.96), -2px 2px 0 rgba(127, 250, 103, 0.96),
+    -2px -2px 0 rgba(127, 250, 103, 0.96), 2px 0px 0 rgba(127, 250, 103, 0.96),
+    0px 2px 0 rgba(127, 250, 103, 0.96), -2px 0px 0 rgba(127, 250, 103, 0.96),
+    0px -2px 0 rgba(127, 250, 103, 0.96);
+  margin: 0px;
+  text-align: center;
+}
+
+#search-again {
+  font-size: 2em;
+  margin: 0px;
+  text-align: center;
+}
+
+#not-found-container img {
+  width: 20%;
+  margin: auto;
+  display: block;
+  height: fit-content;
+  text-align: center;
 }

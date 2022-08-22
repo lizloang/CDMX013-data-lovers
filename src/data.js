@@ -21,3 +21,8 @@ export const sortData = (data, sortOrder) => {
   }
 };
 
+export const searchInput = (data, value) => {
+  const searcher = data.filter(element => element.name.toLowerCase().includes(value.toLowerCase()));
+  return searcher;
+};
+

@@ -1,4 +1,4 @@
-import { filterData, sortData } from "./data.js";
+import { filterData, sortData, searchInput } from "./data.js";
 // import data from './data/lol/lol.js';
 //import data from './data/pokemon/pokemon.js';
 import data from "./data/rickandmorty/rickandmorty.js";
@@ -165,4 +165,16 @@ document.getElementById("sort").addEventListener("click", () => {
     removeCards();
     sortZA.map(createCard);
   }
+});
+
+document.getElementById("search-input").addEventListener("input", (event) => {
+  const { value } = event.target;
+  removeCards();
+  console.log("search: " + searchInput(data.results, value));
+  if (searchInput(data.results, value) == "") {
+    document.querySelector("main").innerHTML =
+      "<div id='not-found-container'><p id='not-found'>That character is not in this universe.</p>" +
+      "<p id='search-again'>Please, search again</p><img src='mortysad.gif' alt= 'morty sad'></div>";
+  }
+  return searchInput(data.results, value).map(createCard);
 });
