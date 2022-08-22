@@ -1,7 +1,9 @@
 import { filterData, sortData, searchInput } from "./data.js";
+//import {config, data2} from './chart.js';
 // import data from './data/lol/lol.js';
 //import data from './data/pokemon/pokemon.js';
 import data from "./data/rickandmorty/rickandmorty.js";
+//const Chart = require('chart.js');
 //console.log(data);
 
 showAllCards();
@@ -178,3 +180,36 @@ document.getElementById("search-input").addEventListener("input", (event) => {
   }
   return searchInput(data.results, value).map(createCard);
 });
+
+//chart example
+const labels = [
+  'Red',
+  'Blue',
+  'Yellow',
+  'Pink',
+  'Purple',
+  'Green',
+];
+
+const data2 = {
+  labels: labels,
+  datasets: [{
+    label: 'My First dataset',
+    backgroundColor: ['rgb(255, 99, 132)','rgb(255, 99, 132)',
+    'rgb(54, 162, 235)','rgb(255, 205, 86)','rgb(255, 99, 132)','rgb(45, 234, 99)'],
+    borderColor: 'rgb(255, 99, 132)',
+    data: [0, 10, 5, 2, 20, 30, 45],
+    hoverOffset: 4
+  }],
+};
+
+const config = {
+  type: 'doughnut',
+  data: data2,
+  options: {}
+};
+
+const myChart = new Chart(
+  document.getElementById('myChart'),
+  config
+);

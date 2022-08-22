@@ -1,5 +1,3 @@
-// estas funciones son de ejemplo
-
 export const filterData = (data, condition) => {
   return data.filter(condition);
   
@@ -26,3 +24,6 @@ export const searchInput = (data, value) => {
   return searcher;
 };
 
+export const computeStats = (data) => {
+
+};
