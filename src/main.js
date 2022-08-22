@@ -174,7 +174,7 @@ document.getElementById("search-input").addEventListener("input", (event) => {
   if (searchInput(data.results, value) == "") {
     document.querySelector("main").innerHTML =
       "<div id='not-found-container'><p id='not-found'>That character is not in this universe.</p>" +
-      "<p id='search-again'>Please, search again</p><img src='mortysad.gif' alt= 'morty sad'></div>";
+      "<p id='search-again'>Please, search again</p><img src='src/mortysad.gif' alt= 'morty sad'></div>";
   }
   return searchInput(data.results, value).map(createCard);
 });
