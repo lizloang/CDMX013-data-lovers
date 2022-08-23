@@ -219,11 +219,11 @@ footer div {
   #search {
     width: 74%;
   }
-  footer{
+  footer {
     flex-direction: column;
     align-items: center;
   }
-  footer div{
+  footer div {
     width: 65% !important;
   }
 }
@@ -290,6 +290,8 @@ footer div {
   width: 26%;
 }
 
-#speciesStats, #statusStats, #genderStats{
-  margin-bottom: 20px
+#speciesStats,
+#statusStats,
+#genderStats {
+  margin-bottom: 20px;
 }

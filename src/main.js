@@ -57,6 +57,11 @@ function removeCards() {
   while (main.firstChild) {
     main.removeChild(main.firstChild);
   }
+  //Remove Stats
+  let footer = document.querySelector("footer");
+  while (footer.firstChild) {
+    footer.removeChild(footer.firstChild);
+  }
 }
 
 const allCharacters = document.getElementById("inicio");
@@ -243,16 +248,16 @@ function createCharts(categorie) {
     options: {
       plugins: {
         layout: {
-          padding: 50
-      },
+          padding: 50,
+        },
         legend: {
-            labels: {
-                font: {
-                    size: 28
-                }
-            }
-        }
-    }
+          labels: {
+            font: {
+              size: 28,
+            },
+          },
+        },
+      },
     },
   };
 
