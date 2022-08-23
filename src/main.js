@@ -182,6 +182,10 @@ document.getElementById("search-input").addEventListener("input", (event) => {
 });
 
 document.getElementById("statsButton").addEventListener("click", function () {
+  document.getElementById("number-of-results").innerHTML = "";
+  select.selectedIndex = "0";
+  selectSpecie.selectedIndex = "0";
+  selectStatus.selectedIndex = "0";
   removeCards();
   document.querySelector("footer").innerHTML =
     "<div>" +
@@ -236,7 +240,18 @@ function createCharts(categorie) {
   const config = {
     type: "doughnut",
     data: data2,
-    options: {},
+    options: {
+      plugins: {
+        legend: {
+            labels: {
+                // This more specific font property overrides the global property
+                font: {
+                    size: 28
+                }
+            }
+        }
+    }
+    },
   };
 
   let idStats = categorie + "Stats";
