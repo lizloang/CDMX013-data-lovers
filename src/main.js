@@ -181,13 +181,21 @@ document.getElementById("search-input").addEventListener("input", (event) => {
   return searchInput(data.results, value).map(createCard);
 });
 
-document.getElementById("statsButton").addEventListener("click", function(){
+document.getElementById("statsButton").addEventListener("click", function () {
   removeCards();
-  document.querySelector("main").innerHTML = "<section>" +
-  "<canvas id='statusStats'></canvas>" +
-  "<canvas id='speciesStats'></canvas>" +
-  "<canvas id='genderStats'></canvas>" +
-  "</section>";
+  document.querySelector("footer").innerHTML =
+    "<div>" +
+    "<p>Status</p>" +
+    "<canvas id='statusStats'></canvas>" +
+    "</div>" +
+    "<div>" +
+    "<p>Species</p>" +
+    "<canvas id='speciesStats'></canvas>" +
+    "</div>" +
+    "<div>" +
+    "<p>Gender</p>" +
+    "<canvas id='genderStats'></canvas>" +
+    "</div>";
   createCharts("status");
   createCharts("species");
   createCharts("gender");
@@ -199,18 +207,18 @@ function createCharts(categorie) {
   );
   const values = Object.values(computeStats(data.results, categorie));
   const colors = [
-    "rgb(252,248,108)",
+    "rgb(169,211,233)",
+    "rgb(249,246,117)",
     "rgb(37,183,9)",
-    "rgb(0, 181, 204)",
-    "rgb(228, 167, 136)",
-    "rgb(0,191,255)",
-    "rgb(244,164,96)",
-    "rgb(242,153,1)",
-    "rgb(112,128,144)",
-    "rgb(95,158,160)",
-    "rgb(68,40,29)",
+    "rgb(223,110,199)",
+    "rgb(232,83,85)",
+    "rgb(220,138,56)",
+    "rgb(145,89,42)",
+    "rgb(66,64,209)",
+    "rgb(179,126,196)",
+    "rgb(129,14,73)",
     "rgb(255,255,255)",
-    "rgb(113,61,245)",
+    "rgb(34,139,0)",
   ];
   const data2 = {
     labels: labels,
@@ -218,7 +226,7 @@ function createCharts(categorie) {
       {
         label: "My First dataset",
         backgroundColor: colors,
-        borderColor: "white",
+        borderColor: colors,
         data: values,
         hoverOffset: 4,
       },
