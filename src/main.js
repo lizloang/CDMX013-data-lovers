@@ -183,6 +183,7 @@ document.getElementById("search-input").addEventListener("input", (event) => {
 
 //chart example
 //const dictStats = computeStats(data.results);
+
 function createCharts(categorie) {
   const labels = Object.getOwnPropertyNames(
     computeStats(data.results, categorie)
@@ -221,9 +222,11 @@ function createCharts(categorie) {
     options: {},
   };
 
-  const myChart = new Chart(document.getElementById("myChart"), config);
+  let idStats = categorie + "Stats";
+
+  const myChart = new Chart(document.getElementById(idStats), config);
 }
 
 createCharts("status");
-createCharts("specie");
+createCharts("species");
 createCharts("gender");
