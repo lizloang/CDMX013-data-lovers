@@ -242,9 +242,11 @@ function createCharts(categorie) {
     data: data2,
     options: {
       plugins: {
+        layout: {
+          padding: 50
+      },
         legend: {
             labels: {
-                // This more specific font property overrides the global property
                 font: {
                     size: 28
                 }
