@@ -219,6 +219,13 @@ footer div {
   #search {
     width: 74%;
   }
+  footer{
+    flex-direction: column;
+    align-items: center;
+  }
+  footer div{
+    width: 65% !important;
+  }
 }
 
 #not-found,
@@ -280,4 +287,5 @@ footer div {
   border-radius: 1.5em;
   margin-top: 8px;
   margin-bottom: 30px;
+  width: 30%;
 }
