@@ -181,13 +181,17 @@ document.getElementById("search-input").addEventListener("input", (event) => {
   return searchInput(data.results, value).map(createCard);
 });
 
-document.getElementById("statsButton").addEventListener("click", function(){
+document.getElementById("statsButton").addEventListener("click", function () {
   removeCards();
-  document.querySelector("main").innerHTML = "<section>" +
-  "<canvas id='statusStats'></canvas>" +
-  "<canvas id='speciesStats'></canvas>" +
-  "<canvas id='genderStats'></canvas>" +
-  "</section>";
+  document.querySelector("main").innerHTML =
+    "<section>" +
+    "<p>Status</p>" +
+    "<canvas id='statusStats'></canvas>" +
+    "<p>Specie</p>" +
+    "<canvas id='speciesStats'></canvas>" +
+    "<p>Gender</p>" +
+    "<canvas id='genderStats'></canvas>" +
+    "</section>";
   createCharts("status");
   createCharts("species");
   createCharts("gender");

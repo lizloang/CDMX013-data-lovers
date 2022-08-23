@@ -248,3 +248,9 @@ nav {
   height: fit-content;
   text-align: center;
 }
+
+section p {
+  color: white;
+  font-size: 2em;
+  text-align: center;
+}
