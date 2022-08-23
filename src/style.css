@@ -290,6 +290,6 @@ footer div {
   width: 26%;
 }
 
-#speciesStats{
+#speciesStats, #statusStats, #genderStats{
   margin-bottom: 20px
 }
