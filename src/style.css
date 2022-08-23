@@ -135,7 +135,7 @@ nav {
 
 .categorie,
 #inicio,
-#sort {
+#sort, #statsButton {
   width: 18rem;
   height: 2.5rem;
   border-radius: 8px;
@@ -153,15 +153,15 @@ nav {
 }
 
 #inicio,
-#sort {
+#sort, #statsButton {
   color: white;
   background-color: rgba(37, 183, 9, 1);
 }
 
-#sort {
+#sort, #statsButton {
   width: 6rem;
 }
-#sort:hover {
+#sort:hover, #statsButton:hover {
   box-shadow: 0px 0px 10px 10px rgba(127, 250, 103, 0.51);
 }
 
@@ -187,7 +187,7 @@ nav {
   background-color: white;
 }
 
-.fa-regular {
+.fa-regular{
   margin: 5px 10px;
   color: rgb(118, 118, 118);
 }
