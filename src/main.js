@@ -181,8 +181,17 @@ document.getElementById("search-input").addEventListener("input", (event) => {
   return searchInput(data.results, value).map(createCard);
 });
 
-//chart example
-//const dictStats = computeStats(data.results);
+document.getElementById("statsButton").addEventListener("click", function(){
+  removeCards();
+  document.querySelector("main").innerHTML = "<section>" +
+  "<canvas id='statusStats'></canvas>" +
+  "<canvas id='speciesStats'></canvas>" +
+  "<canvas id='genderStats'></canvas>" +
+  "</section>";
+  createCharts("status");
+  createCharts("species");
+  createCharts("gender");
+});
 
 function createCharts(categorie) {
   const labels = Object.getOwnPropertyNames(
@@ -226,7 +235,3 @@ function createCharts(categorie) {
 
   const myChart = new Chart(document.getElementById(idStats), config);
 }
-
-createCharts("status");
-createCharts("species");
-createCharts("gender");
