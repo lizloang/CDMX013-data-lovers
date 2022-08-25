@@ -1,4 +1,4 @@
-import { filterData, sortData, searchInput } from "../src/data.js";
+import { filterData, sortData, searchInput, computeStats } from "../src/data.js";
 
 describe("filterData", () => {
   it("is a function", () => {
@@ -9,10 +9,10 @@ describe("filterData", () => {
     const data = [
       { gender: "Female" },
       { gender: "Male" },
-      { gender: "Genderless" },
+      { gender: "Genderless" }
     ];
     expect(filterData(data, (element) => element.gender === "Male")).toEqual([
-      { gender: "Male" },
+      { gender: "Male" }
     ]);
   });
 
@@ -20,10 +20,10 @@ describe("filterData", () => {
     const data = [
       { status: "Alive" },
       { status: "Dead" },
-      { status: "unknown" },
+      { status: "unknown" }
     ];
     expect(filterData(data, (element) => element.status === "Alive")).toEqual([
-      { status: "Alive" },
+      { status: "Alive" }
     ]);
   });
 
@@ -31,10 +31,10 @@ describe("filterData", () => {
     const data = [
       { specie: "Animal" },
       { specie: "Humanoid" },
-      { specie: "Alien" },
+      { specie: "Alien" }
     ];
     expect(filterData(data, (element) => element.specie === "Alien")).toEqual([
-      { specie: "Alien" },
+      { specie: "Alien" }
     ]);
   });
 });
@@ -48,12 +48,12 @@ describe("sortData", () => {
     const inputData = [
       { name: "Rick Sanchez" },
       { name: "Morty Smith" },
-      { name: "Stewart Ackerley" },
+      { name: "Stewart Ackerley" }
     ];
     const outputData = [
       { name: "Morty Smith" },
       { name: "Rick Sanchez" },
-      { name: "Stewart Ackerley" },
+      { name: "Stewart Ackerley" }
     ];
     expect(sortData(inputData, "a_z")).toEqual(outputData);
   });
@@ -62,12 +62,12 @@ describe("sortData", () => {
     const inputData = [
       { name: "Morty Smith" },
       { name: "Rick Sanchez" },
-      { name: "Stewart Ackerley" },
+      { name: "Stewart Ackerley" }
     ];
     const outputData = [
       { name: "Stewart Ackerley" },
       { name: "Rick Sanchez" },
-      { name: "Morty Smith" },
+      { name: "Morty Smith" }
     ];
     expect(sortData(inputData, "z_a")).toEqual(outputData);
   });
@@ -76,12 +76,12 @@ describe("sortData", () => {
     const inputData = [
       { name: "Stewart Ackerley" },
       { name: "Rick Sanchez" },
-      { name: "Stewart Ackerley" },
+      { name: "Stewart Ackerley" }
     ];
     const outputData = [
       { name: "Rick Sanchez" },
       { name: "Stewart Ackerley" },
-      { name: "Stewart Ackerley" },
+      { name: "Stewart Ackerley" }
     ];
     expect(sortData(inputData, "a_z")).toEqual(outputData);
   });
@@ -96,7 +96,7 @@ describe("searchInput", () => {
     const inputData = [
       { name: "Rick Sanchez" },
       { name: "Morty Smith" },
-      { name: "Stewart Ackerley" },
+      { name: "Stewart Ackerley" }
     ];
     const outputData = [{ name: "Morty Smith" }];
     expect(searchInput(inputData, "Morty Smith")).toEqual(outputData);
@@ -106,7 +106,7 @@ describe("searchInput", () => {
     const inputData = [
       { name: "Adjudicator Rick" },
       { name: "Morty Smith" },
-      { name: "Rick Sanchez" },
+      { name: "Rick Sanchez" }
     ];
     const outputData = [{ name: "Adjudicator Rick" }, { name: "Rick Sanchez" }];
     expect(searchInput(inputData, "rick")).toEqual(outputData);
@@ -116,7 +116,7 @@ describe("searchInput", () => {
     const inputData = [
       { name: "Adjudicator Rick" },
       { name: "Morty Smith" },
-      { name: "Rick Sanchez" },
+      { name: "Rick Sanchez" }
     ];
     const outputData = [{ name: "Adjudicator Rick" }, { name: "Rick Sanchez" }];
     expect(searchInput(inputData, "ric")).toEqual(outputData);
@@ -126,7 +126,7 @@ describe("searchInput", () => {
     const inputData = [
       { name: "Adjudicator Rick" },
       { name: "Morty Smith" },
-      { name: "Morty Smith" },
+      { name: "Morty Smith" }
     ];
     const outputData = [{ name: "Morty Smith" }, { name: "Morty Smith" }];
     expect(searchInput(inputData, "Morty Smith")).toEqual(outputData);
@@ -136,7 +136,7 @@ describe("searchInput", () => {
     const inputData = [
       { name: "Adjudicator Rick" },
       { name: "Morty Smith" },
-      { name: "Rick Sanchez" },
+      { name: "Rick Sanchez" }
     ];
     const outputData = [{ name: "Morty Smith" }];
     expect(searchInput(inputData, "MORTY SMITH")).toEqual(outputData);
@@ -146,14 +146,9 @@ describe("searchInput", () => {
     const inputData = [
       { name: "Stewart Ackerley" },
       { name: "Beth Smith" },
-      { name: "Albert Einstein" },
+      { name: "Albert Einstein" }
     ];
-<<<<<<< HEAD
-    const outputData = [{ name: "Beth Smith" },{ name: "Albert Einstein" },
-    ];
-=======
     const outputData = [{ name: "Beth Smith" }, { name: "Albert Einstein" }];
->>>>>>> 0506e26492365b81f6207b219484493b24754f2a
     expect(searchInput(inputData, "b")).toEqual(outputData);
   });
 
@@ -161,12 +156,55 @@ describe("searchInput", () => {
     const inputData = [
       { name: "Stewart Ackerley" },
       { name: "Beth Smith" },
-      { name: "Albert Einstein" },
+      { name: "Albert Einstein" }
     ];
     expect(searchInput(inputData, "rosa")).toEqual([]);
-<<<<<<< HEAD
+  });
+});
 
-=======
->>>>>>> 0506e26492365b81f6207b219484493b24754f2a
+describe("computeStats", () => {
+  it("is a function", () => {
+    expect(typeof computeStats).toBe("function");
+  });
+
+  it("return a dictionary with property of all status and the sum of each one ", () => {
+    const data = [
+      { status: "Alive" },
+      { status: "unknown" },
+      { status: "Dead" },
+      { status: "Alive" },
+      { status: "unknown" },
+      { status: "Alive" }
+    ];
+    
+    const outputData =  {Alive: 3, Dead: 1 ,unknown: 2 };
+    expect(computeStats(data,"status")).toEqual(outputData);
+  });
+  
+  it("return a dictionary with property of all gender and the sum of each one ", () => {
+    const data = [
+      { gender: "Female" },
+      { gender: "Male" },
+      { gender: "Genderless" },
+      { gender: "Female" }
+    ];
+    
+    const outputData =  {Female: 2, Male: 1 ,Genderless: 1 };
+    expect(computeStats(data,"gender")).toEqual(outputData);
+  });
+
+  it("return a dictionary with property of all species and the sum of each one ", () => {
+    const data = [
+      { species: "Animal" },
+      { species: "Humanoid" },
+      { species: "Alien" },
+      { species: "Humanoid" },
+      { species: "Alien" },
+      { species: "Animal" },
+      { species: "Humanoid" }
+    ];
+    
+    const outputData =  {Animal: 2, Humanoid: 3 ,Alien: 2 };
+    expect(computeStats(data,"species")).toEqual(outputData);
   });
 });
