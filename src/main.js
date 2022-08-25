@@ -58,9 +58,9 @@ function removeCards() {
     main.removeChild(main.firstChild);
   }
   //Remove Stats
-  let footer = document.querySelector("footer");
-  while (footer.firstChild) {
-    footer.removeChild(footer.firstChild);
+  let stats = document.getElementById("stats");
+  while (stats.firstChild) {
+    stats.removeChild(stats.firstChild);
   }
 }
 
@@ -192,7 +192,7 @@ document.getElementById("statsButton").addEventListener("click", function () {
   selectSpecie.selectedIndex = "0";
   selectStatus.selectedIndex = "0";
   removeCards();
-  document.querySelector("footer").innerHTML =
+  document.getElementById("stats").innerHTML =
     "<div>" +
     "<p>Status</p>" +
     "<canvas id='statusStats'></canvas>" +
@@ -216,8 +216,8 @@ function createCharts(categorie) {
   );
   const values = Object.values(computeStats(data.results, categorie));
   const colors = [
-    "rgb(169,211,233)",
-    "rgb(249,246,117)",
+    "rgb(152,204,232)",
+    "rgb(250,255,6)",
     "rgb(37,183,9)",
     "rgb(223,110,199)",
     "rgb(232,83,85)",
@@ -226,7 +226,7 @@ function createCharts(categorie) {
     "rgb(66,64,209)",
     "rgb(179,126,196)",
     "rgb(129,14,73)",
-    "rgb(255,255,255)",
+    "rgb(0,0,0)",
     "rgb(34,139,0)",
   ];
   const data2 = {
