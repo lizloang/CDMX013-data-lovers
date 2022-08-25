@@ -166,7 +166,7 @@ nav {
 }
 #sort:hover,
 #statsButton:hover,
-footer div {
+#stats div {
   box-shadow: 0px 0px 10px 10px rgba(127, 250, 103, 0.51);
 }
 
@@ -219,11 +219,11 @@ footer div {
   #search {
     width: 74%;
   }
-  footer {
+  #stats {
     flex-direction: column;
     align-items: center;
   }
-  footer div {
+  #stats div {
     width: 65% !important;
   }
 }
@@ -261,7 +261,7 @@ footer div {
   text-align: center;
 }
 
-footer p {
+#stats p {
   color: rgba(0, 53, 102, 1);
   font-size: 2em;
   text-align: center;
@@ -276,13 +276,13 @@ footer p {
   justify-content: space-between;
 }
 
-footer {
+#stats {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
 }
 
-footer div {
+#stats div {
   background-color: white;
   border-radius: 1.5em;
   margin-top: 8px;
