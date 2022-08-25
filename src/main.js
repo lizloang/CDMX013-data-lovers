@@ -1,5 +1,5 @@
 import { filterData, sortData, searchInput, computeStats } from "./data.js";
-import { Chart } from "chart.js";
+//import { Chart } from "chart.js";
 import data from "./data/rickandmorty/rickandmorty.js";
 showAllCards();
 
