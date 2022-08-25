@@ -135,7 +135,8 @@ nav {
 
 .categorie,
 #inicio,
-#sort {
+#sort,
+#statsButton {
   width: 18rem;
   height: 2.5rem;
   border-radius: 8px;
@@ -153,22 +154,22 @@ nav {
 }
 
 #inicio,
-#sort {
+#sort,
+#statsButton {
   color: white;
   background-color: rgba(37, 183, 9, 1);
 }
 
-#sort {
+#sort,
+#statsButton {
   width: 6rem;
 }
-#sort:hover {
+#sort:hover,
+#statsButton:hover,
+#stats div {
   box-shadow: 0px 0px 10px 10px rgba(127, 250, 103, 0.51);
 }
-@media only screen and (max-width: 576px) {
-  .categorie {
-    width: 7rem;
-  }
-}
+
 #number-of-results {
   color: white;
   font-size: 2em;
@@ -179,4 +180,147 @@ nav {
 
 #number-results {
   color: rgba(37, 183, 9, 1);
+}
+
+#search {
+  padding: 7px;
+  border-radius: 34px;
+  border: 1px solid #d9d9d9;
+  margin-bottom: 30px;
+  margin-top: 10px;
+  width: 27%;
+  background-color: white;
+}
+
+.fa-regular {
+  margin: 5px 10px;
+  color: rgb(118, 118, 118);
+}
+
+#search-input {
+  border: 0;
+  appearance: none;
+}
+
+#search-input:focus {
+  outline: none;
+  width: 85%;
+}
+
+#search-input::placeholder {
+  font-family: "Baloo Paaji 2", cursive;
+  font-size: 1.5em;
+}
+
+@media only screen and (max-width: 800px) and (min-width: 300px) {
+  .categorie {
+    width: 7rem;
+  }
+  #search {
+    width: 74%;
+  }
+  #stats {
+    flex-direction: column;
+    align-items: center;
+  }
+  #stats div {
+    width: 65% !important;
+  }
+}
+
+#not-found,
+#search-again {
+  color: white;
+  display: block;
+}
+
+#not-found {
+  font-size: 4em;
+  font-weight: bold;
+  color: #ffffff;
+  text-shadow: 2px 2px 0 rgba(127, 250, 103, 0.96),
+    2px -2px 0 rgba(127, 250, 103, 0.96), -2px 2px 0 rgba(127, 250, 103, 0.96),
+    -2px -2px 0 rgba(127, 250, 103, 0.96), 2px 0px 0 rgba(127, 250, 103, 0.96),
+    0px 2px 0 rgba(127, 250, 103, 0.96), -2px 0px 0 rgba(127, 250, 103, 0.96),
+    0px -2px 0 rgba(127, 250, 103, 0.96);
+  margin: 0px;
+  text-align: center;
+}
+
+#search-again {
+  font-size: 2em;
+  margin: 0px;
+  text-align: center;
+}
+
+#not-found-container img {
+  width: 20%;
+  margin: auto;
+  display: block;
+  height: fit-content;
+  text-align: center;
+}
+
+#stats p {
+  color: rgba(0, 53, 102, 1);
+  font-size: 2em;
+  text-align: center;
+  font-weight: bold;
+  margin: 10px;
+}
+
+#section {
+  display: flex;
+  width: 500px;
+  margin: 0px;
+  justify-content: space-between;
+}
+
+#stats {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+#stats div {
+  background-color: white;
+  border-radius: 1.5em;
+  margin-top: 8px;
+  margin-bottom: 30px;
+  width: 26%;
+}
+
+#speciesStats,
+#statusStats,
+#genderStats {
+  margin-bottom: 20px;
+}
+.container-btn-top {
+  position: fixed;
+  bottom: 4rem;
+  right: 4rem;
+  z-index: -83;
+}
+
+.btn-top {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: .3s;
+}
+
+.show {
+  z-index: 10;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.show .btn-top {
+  animation: popup .1s ease-in-out;
+  width: 1em;
+  height: auto;
+  font-size: 3em;
+  color: #ffffff;
+  z-index: 11;
+  transform: translate(-50%, -50%) scale(1);
 }

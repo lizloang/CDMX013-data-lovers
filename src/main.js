@@ -1,9 +1,5 @@
-import { filterData, sortData } from "./data.js";
-// import data from './data/lol/lol.js';
-//import data from './data/pokemon/pokemon.js';
+import { filterData, sortData, searchInput, computeStats } from "./data.js";
 import data from "./data/rickandmorty/rickandmorty.js";
-//console.log(data);
-
 showAllCards();
 
 function createCard(element) {
@@ -55,6 +51,11 @@ function removeCards() {
   while (main.firstChild) {
     main.removeChild(main.firstChild);
   }
+  //Remove Stats
+  let stats = document.getElementById("stats");
+  while (stats.firstChild) {
+    stats.removeChild(stats.firstChild);
+  }
 }
 
 const allCharacters = document.getElementById("inicio");
@@ -85,7 +86,6 @@ select.addEventListener("change", () => {
 const selectSpecie = document.getElementById("specie");
 selectSpecie.addEventListener("change", () => {
   let value = selectSpecie.options[selectSpecie.selectedIndex].text;
-  //console.log("specie value: " + value);
   const numberOfresults = specieFilter(value);
   document.getElementById("number-of-results").innerHTML =
     value + " (<span id='number-results'>" + numberOfresults + "</span>)";
@@ -165,4 +165,110 @@ document.getElementById("sort").addEventListener("click", () => {
     removeCards();
     sortZA.map(createCard);
   }
+});
+
+document.getElementById("search-input").addEventListener("input", (event) => {
+  const { value } = event.target;
+  removeCards();
+  console.log("search: " + searchInput(data.results, value));
+  if (searchInput(data.results, value) == "") {
+    document.querySelector("main").innerHTML =
+      "<div id='not-found-container'><p id='not-found'>That character is not in this universe.</p>" +
+      "<p id='search-again'>Please, search again</p><img src='mortysad.gif' alt= 'morty sad'></div>";
+  }
+  return searchInput(data.results, value).map(createCard);
+});
+
+document.getElementById("statsButton").addEventListener("click", function () {
+  document.getElementById("number-of-results").innerHTML = "";
+  select.selectedIndex = "0";
+  selectSpecie.selectedIndex = "0";
+  selectStatus.selectedIndex = "0";
+  removeCards();
+  document.getElementById("stats").innerHTML =
+    "<div>" +
+    "<p>Status</p>" +
+    "<canvas id='statusStats'></canvas>" +
+    "</div>" +
+    "<div>" +
+    "<p>Species</p>" +
+    "<canvas id='speciesStats'></canvas>" +
+    "</div>" +
+    "<div>" +
+    "<p>Gender</p>" +
+    "<canvas id='genderStats'></canvas>" +
+    "</div>";
+  createCharts("status");
+  createCharts("species");
+  createCharts("gender");
+});
+
+function createCharts(categorie) {
+  const labels = Object.getOwnPropertyNames(
+    computeStats(data.results, categorie)
+  );
+  const values = Object.values(computeStats(data.results, categorie));
+  const colors = [
+    "rgb(152,204,232)",
+    "rgb(250,255,6)",
+    "rgb(37,183,9)",
+    "rgb(223,110,199)",
+    "rgb(232,83,85)",
+    "rgb(220,138,56)",
+    "rgb(145,89,42)",
+    "rgb(66,64,209)",
+    "rgb(179,126,196)",
+    "rgb(129,14,73)",
+    "rgb(0,0,0)",
+    "rgb(34,139,0)",
+  ];
+  const data2 = {
+    labels: labels,
+    datasets: [
+      {
+        label: "My First dataset",
+        backgroundColor: colors,
+        borderColor: colors,
+        data: values,
+        hoverOffset: 4,
+      },
+    ],
+  };
+
+  const config = {
+    type: "doughnut",
+    data: data2,
+    options: {
+      plugins: {
+        layout: {
+          padding: 50,
+        },
+        legend: {
+          labels: {
+            font: {
+              size: 28,
+            },
+          },
+        },
+      },
+    },
+  };
+
+  let idStats = categorie + "Stats";
+
+  const myChart = new Chart(document.getElementById(idStats), config);
+}
+// Scrolling button
+window.onscroll = () => {
+  if (document.documentElement.scrollTop > 100) {
+    document.querySelector('.container-btn-top').classList.add('show');
+  } else {
+    document.querySelector('.container-btn-top').classList.remove('show');
+  }
+};
+document.querySelector('.container-btn-top').addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  });
 });
