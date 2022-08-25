@@ -148,8 +148,12 @@ describe("searchInput", () => {
       { name: "Beth Smith" },
       { name: "Albert Einstein" },
     ];
+<<<<<<< HEAD
     const outputData = [{ name: "Beth Smith" },{ name: "Albert Einstein" },
     ];
+=======
+    const outputData = [{ name: "Beth Smith" }, { name: "Albert Einstein" }];
+>>>>>>> 0506e26492365b81f6207b219484493b24754f2a
     expect(searchInput(inputData, "b")).toEqual(outputData);
   });
 
@@ -160,6 +164,9 @@ describe("searchInput", () => {
       { name: "Albert Einstein" },
     ];
     expect(searchInput(inputData, "rosa")).toEqual([]);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0506e26492365b81f6207b219484493b24754f2a
   });
 });

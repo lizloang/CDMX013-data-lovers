@@ -135,7 +135,8 @@ nav {
 
 .categorie,
 #inicio,
-#sort {
+#sort,
+#statsButton {
   width: 18rem;
   height: 2.5rem;
   border-radius: 8px;
@@ -153,15 +154,19 @@ nav {
 }
 
 #inicio,
-#sort {
+#sort,
+#statsButton {
   color: white;
   background-color: rgba(37, 183, 9, 1);
 }
 
-#sort {
+#sort,
+#statsButton {
   width: 6rem;
 }
-#sort:hover {
+#sort:hover,
+#statsButton:hover,
+#stats div {
   box-shadow: 0px 0px 10px 10px rgba(127, 250, 103, 0.51);
 }
 
@@ -214,6 +219,15 @@ nav {
   #search {
     width: 74%;
   }
+
+  #stats {
+    flex-direction: column;
+    align-items: center;
+  }
+  #stats div {
+    width: 65% !important;
+  }
+
 }
 
 #not-found,
@@ -248,3 +262,69 @@ nav {
   height: fit-content;
   text-align: center;
 }
+
+
+#stats p {
+  color: rgba(0, 53, 102, 1);
+  font-size: 2em;
+  text-align: center;
+  font-weight: bold;
+  margin: 10px;
+}
+
+#section {
+  display: flex;
+  width: 500px;
+  margin: 0px;
+  justify-content: space-between;
+}
+
+#stats {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+#stats div {
+  background-color: white;
+  border-radius: 1.5em;
+  margin-top: 8px;
+  margin-bottom: 30px;
+  width: 26%;
+}
+
+#speciesStats,
+#statusStats,
+#genderStats {
+  margin-bottom: 20px;
+}
+.container-btn-top {
+  position: fixed;
+  bottom: 4rem;
+  right: 4rem;
+  z-index: -83;
+}
+
+.btn-top {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: .3s;
+}
+
+.show {
+  z-index: 10;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.show .btn-top {
+  animation: popup .1s ease-in-out;
+  width: 1em;
+  height: auto;
+  font-size: 3em;
+  color: #ffffff;
+  z-index: 11;
+  transform: translate(-50%, -50%) scale(1);
+}
+>>>>>>> 0506e26492365b81f6207b219484493b24754f2a
