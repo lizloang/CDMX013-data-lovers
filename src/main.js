@@ -86,7 +86,6 @@ select.addEventListener("change", () => {
 const selectSpecie = document.getElementById("specie");
 selectSpecie.addEventListener("change", () => {
   let value = selectSpecie.options[selectSpecie.selectedIndex].text;
-  //console.log("specie value: " + value);
   const numberOfresults = specieFilter(value);
   document.getElementById("number-of-results").innerHTML =
     value + " (<span id='number-results'>" + numberOfresults + "</span>)";
