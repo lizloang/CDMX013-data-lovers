@@ -1,11 +1,5 @@
 import { filterData, sortData, searchInput, computeStats } from "./data.js";
-//import {config, data2} from './chart.js';
-// import data from './data/lol/lol.js';
-//import data from './data/pokemon/pokemon.js';
 import data from "./data/rickandmorty/rickandmorty.js";
-//const Chart = require('chart.js');
-//console.log(data);
-
 showAllCards();
 
 function createCard(element) {
@@ -265,3 +259,17 @@ function createCharts(categorie) {
 
   const myChart = new Chart(document.getElementById(idStats), config);
 }
+// Boton para subir en pantalla
+window.onscroll = () => {
+  if (document.documentElement.scrollTop > 100) {
+    document.querySelector('.container-btn-top').classList.add('show');
+  } else {
+    document.querySelector('.container-btn-top').classList.remove('show');
+  }
+};
+document.querySelector('.container-btn-top').addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  });
+});

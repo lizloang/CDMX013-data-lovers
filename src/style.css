@@ -295,3 +295,32 @@ nav {
 #genderStats {
   margin-bottom: 20px;
 }
+.container-btn-top {
+  position: fixed;
+  bottom: 4rem;
+  right: 4rem;
+  z-index: -83;
+}
+
+.btn-top {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: .3s;
+}
+
+.show {
+  z-index: 10;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.show .btn-top {
+  animation: popup .1s ease-in-out;
+  width: 1em;
+  height: auto;
+  font-size: 3em;
+  color: #ffffff;
+  z-index: 11;
+  transform: translate(-50%, -50%) scale(1);
+}
