@@ -259,7 +259,7 @@ function createCharts(categorie) {
 
   const myChart = new Chart(document.getElementById(idStats), config);
 }
-// Boton para subir en pantalla
+// Scrolling button
 window.onscroll = () => {
   if (document.documentElement.scrollTop > 100) {
     document.querySelector('.container-btn-top').classList.add('show');
