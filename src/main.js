@@ -1,4 +1,5 @@
 import { filterData, sortData, searchInput, computeStats } from "./data.js";
+import { Chart } from 'chart.js';
 import data from "./data/rickandmorty/rickandmorty.js";
 showAllCards();
 
@@ -256,7 +257,7 @@ function createCharts(categorie) {
 
   let idStats = categorie + "Stats";
 
-  const myChart = new Chart(document.getElementById(idStats), config);
+  new Chart(document.getElementById(idStats), config);
 }
 // Scrolling button
 window.onscroll = () => {
