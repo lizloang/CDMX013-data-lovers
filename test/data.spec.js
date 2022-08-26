@@ -1,4 +1,4 @@
-import { filterData, sortData, searchInput } from "../src/data.js";
+import { filterData, sortData, searchInput, computeStats } from "../src/data.js";
 
 describe("filterData", () => {
   it("is a function", () => {
