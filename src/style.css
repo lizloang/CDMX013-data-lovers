@@ -200,6 +200,7 @@ nav {
 #search-input {
   border: 0;
   appearance: none;
+  width: 90%;
 }
 
 #search-input:focus {
