@@ -161,3 +161,50 @@ describe("searchInput", () => {
     expect(searchInput(inputData, "rosa")).toEqual([]);
   });
 });
+
+describe("computeStats", () => {
+  it("is a function", () => {
+    expect(typeof computeStats).toBe("function");
+  });
+
+  it("return a dictionary with property of all status and the sum of each one ", () => {
+    const data = [
+      { status: "Alive" },
+      { status: "unknown" },
+      { status: "Dead" },
+      { status: "Alive" },
+      { status: "unknown" },
+      { status: "Alive" }
+    ];
+    
+    const outputData =  {Alive: 3, Dead: 1 ,unknown: 2 };
+    expect(computeStats(data,"status")).toEqual(outputData);
+  });
+  
+  it("return a dictionary with property of all gender and the sum of each one ", () => {
+    const data = [
+      { gender: "Female" },
+      { gender: "Male" },
+      { gender: "Genderless" },
+      { gender: "Female" }
+    ];
+    
+    const outputData =  {Female: 2, Male: 1 ,Genderless: 1 };
+    expect(computeStats(data,"gender")).toEqual(outputData);
+  });
+
+  it("return a dictionary with property of all species and the sum of each one ", () => {
+    const data = [
+      { species: "Animal" },
+      { species: "Humanoid" },
+      { species: "Alien" },
+      { species: "Humanoid" },
+      { species: "Alien" },
+      { species: "Animal" },
+      { species: "Humanoid" }
+    ];
+    
+    const outputData =  {Animal: 2, Humanoid: 3 ,Alien: 2 };
+    expect(computeStats(data,"species")).toEqual(outputData);
+  });
+});
