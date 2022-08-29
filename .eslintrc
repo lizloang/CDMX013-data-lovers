@@ -8,6 +8,8 @@
   },
   "extends": "eslint:recommended",
   "rules": {
+    "no-unused-vars": "warn",
+    "no-undef": "warn",
     "no-console": "warn",
     "import/extensions": 0
   }

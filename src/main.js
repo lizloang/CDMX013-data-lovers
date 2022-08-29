@@ -261,14 +261,14 @@ function createCharts(categorie) {
 // Scrolling button
 window.onscroll = () => {
   if (document.documentElement.scrollTop > 100) {
-    document.querySelector('.container-btn-top').classList.add('show');
+    document.querySelector(".container-btn-top").classList.add("show");
   } else {
-    document.querySelector('.container-btn-top').classList.remove('show');
+    document.querySelector(".container-btn-top").classList.remove("show");
   }
 };
-document.querySelector('.container-btn-top').addEventListener('click', () => {
+document.querySelector(".container-btn-top").addEventListener("click", () => {
   window.scrollTo({
     top: 0,
-    behavior: 'smooth',
+    behavior: "smooth",
   });
 });
