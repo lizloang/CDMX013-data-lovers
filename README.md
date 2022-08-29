@@ -24,11 +24,12 @@ En este proyecto se implementaron las siguientes historias de ususario:
 ![stats](/figma/stats.jpg)
 ![search](/figma/stats.jpg)
 ![wrongCharacter](/figma/wrongCharacter.jpg)
-![indexMobile](/figma/indexMobilejpg)
+![indexMobile](/figma/indexMobile.jpg)
 ![clickFilterMobile](/figma/clickFilterMobile.jpg)
 
 ## Producto Final 🔚
-![Data Lovers](/figma/dataLovers.mp4)
+![Data Lovers](/figma/dataLovers.gif)
+
 
 ## 3. Objetivos de aprendizaje
 
