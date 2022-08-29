@@ -28,7 +28,7 @@ En este proyecto se implementaron las siguientes historias de ususario:
 ![clickFilterMobile](/figma/clickFilterMobile.jpg)
 
 ## Producto Final 🔚
-![Data Lovers](/figma/dataLovers.gif)
+![DataLovers](/figma/dataLovers.gif)
 
 
 ## 3. Objetivos de aprendizaje
