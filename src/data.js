@@ -32,7 +32,7 @@ function get(object, key, default_value) {
 
 export const computeStats = (data, categorie) => {
   let dict = {};
-  data.map((element) => {
+  data.forEach((element) => {
     dict[element[categorie]] = get(dict, element[categorie], 0) + 1;
   });
 
